@@ -1,2 +1,2 @@
-# Bike_Rental_System
+# Bike Rental System
 Bike rental system using python and Mysql
