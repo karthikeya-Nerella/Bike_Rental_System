@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Edit Bike</h1>
+    <form method="post">
+        <!-- Other form fields -->
+        <div class="form-group">
+            <label>Purchase Date</label>
+            <input type="date" name="PurchaseDate" class="form-control" value="{{ bike[6].strftime('%Y-%m-%d') }}" required>
+        </div>
+        <div class="form-group">
+            <label>Last Maintenance Date</label>
+            {% if bike[7] %}
+            <input type="date" name="LastMaintenanceDate" class="form-control" value="{{ bike[7].strftime('%Y-%m-%d') }}">
+            {% else %}
+            <input type="date" name="LastMaintenanceDate" class="form-control">
+            {% endif %}
+        </div>
+        <!-- Submit button -->
+    </form>
+{% endblock %}
