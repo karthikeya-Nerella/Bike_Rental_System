@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Edit Customer</h1>
+    <form method="post">
+        <!-- Other form fields -->
+        <div class="form-group">
+            <label>Registration Date</label>
+            <input type="date" name="RegistrationDate" class="form-control" value="{{ customer[7].strftime('%Y-%m-%d') }}" required>
+        </div>
+        <!-- Submit button -->
+    </form>
+{% endblock %}
