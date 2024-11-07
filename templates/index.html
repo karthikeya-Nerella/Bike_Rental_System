@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to the Bike Rental System</h1>
+        <p class="lead">Manage Bikes, Customers, Rentals, and Maintenance Records.</p>
+        <hr class="my-4">
+        <p>Use the navigation menu to get started.</p>
+    </div>
+
+    <h2>Manage Records</h2>
+    <div class="list-group mb-4">
+        <a href="{{ url_for('bikes') }}" class="list-group-item list-group-item-action">Bikes</a>
+        <a href="{{ url_for('customers') }}" class="list-group-item list-group-item-action">Customers</a>
+        <a href="{{ url_for('rentals') }}" class="list-group-item list-group-item-action">Rentals</a>
+        <a href="{{ url_for('maintenance') }}" class="list-group-item list-group-item-action">Maintenance Records</a>
+    </div>
+
+    <h2>Predefined Queries</h2>
+    <div class="list-group">
+        <a href="{{ url_for('query1') }}" class="list-group-item list-group-item-action">View Pending Rentals</a>
+        <a href="{{ url_for('query2') }}" class="list-group-item list-group-item-action">Customers with More Than 5 Rentals</a>
+        <a href="{{ url_for('query3') }}" class="list-group-item list-group-item-action">Bikes Needing Maintenance</a>
+    </div>
+{% endblock %}
