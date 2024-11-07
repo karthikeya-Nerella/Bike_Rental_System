@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>{{ title }}</h1>
+    {% if results %}
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                {% for header in headers %}
+                <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in results %}
+            <tr>
+                {% for item in row %}
+                <td>{{ item }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No results found.</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Home</a>
+{% endblock %}
