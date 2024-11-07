@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Add New Rental</h1>
+    <form method="post">
+        <div class="form-group">
+            <label>Customer</label>
+            <select name="CustomerID" class="form-control" required>
+                {% for customer in customers %}
+                <option value="{{ customer[0] }}">{{ customer[1] }} {{ customer[2] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Bike</label>
+            <select name="BikeID" class="form-control" required>
+                {% for bike in bikes %}
+                <option value="{{ bike[0] }}">{{ bike[1] }} ({{ bike[2] }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Start Time</label>
+            <input type="datetime-local" name="StartTime" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>End Time</label>
+            <input type="datetime-local" name="EndTime" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Total Cost</label>
+            <input type="number" step="0.01" name="TotalCost" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Deposit Amount</label>
+            <input type="number" step="0.01" name="DepositAmount" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Return Status</label>
+            <select name="ReturnStatus" class="form-control" required>
+                <option value="Pending">Pending</option>
+                <option value="Returned">Returned</option>
+                <option value="Late">Late</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Rental</button>
+        <a href="{{ url_for('rentals') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}
